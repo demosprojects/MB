@@ -21,10 +21,6 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0px;
-    backdrop-filter: blur(5px);
-    animation: adjust-header linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
 }
 
 
