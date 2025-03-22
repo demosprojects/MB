@@ -12,16 +12,23 @@ body {
 }
 
 header {
-    background: linear-gradient(90deg, #db2e99, #8a4fff); /* Degradado de rosa a violeta */
-    color: white;
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0px;
+
+background: linear-gradient(90deg, #db2e99, #8a4fff); /* Degradado de rosa a violeta */
+
+color: white;
+
+padding: 20px 10%;
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
+
 
 
 header .logo img {
