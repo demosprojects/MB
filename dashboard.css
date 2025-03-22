@@ -1,0 +1,209 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(90deg, #f04337, #8a4fff);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de logout */
+#logout {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#logout:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos generales de la tabla */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: slideIn 1s ease-in-out;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+/* Estilos para móviles (tabla responsive) */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    thead {
+        display: none; /* Oculta el encabezado en móviles */
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label); /* Muestra el nombre de la columna */
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: #007bff;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    tr:hover {
+        transform: none; /* Elimina el efecto hover en móviles */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #logout {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #logout {
+        width: 100%;
+        padding: 10px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+}

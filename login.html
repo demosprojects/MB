@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module">
+        // Importa las funciones necesarias desde firebase-config.js
+        import { auth, signInWithEmailAndPassword } from "./firebase-config.js";
+
+        const loginForm = document.getElementById("loginForm");
+        const mensajeError = document.getElementById("mensajeError");
+
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                // Inicia sesión con correo y contraseña
+                await signInWithEmailAndPassword(auth, email, password);
+                window.location.href = "dashboard.html"; // Redirige al panel administrativo
+            } catch (error) {
+                console.error("Error al iniciar sesión:", error);
+                mensajeError.textContent = "Correo o contraseña incorrectos.";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Iniciar sesión</h1>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="mensajeError"></p>
+    </div>
+</body>
+</html>

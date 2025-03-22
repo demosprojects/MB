@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar turno - MB</title>
+    <link rel="icon" href="portadapng.png" type="image/webp">
+    <link rel="stylesheet" href="turnos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+    <script type="module" src="./firebase-config.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <button id="scrollTopBtn" class="scroll-top-btn">↑</button>
+    <a href="https://wa.me/?text=¡Hola!%20Quiero%20hacer%20una%20consulta." class="whatsapp-button" target="_blank" aria-label="Chatear en WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <header>
+        <div class="logo">
+            <img src="portadapng.png" alt="MB Estudio de Belleza">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="ubicacion.html">Nuestra ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="formulario-turno">
+            <h2>Agenda tu turno</h2>
+            <form id="turnoForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre y apellido:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre y apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Ingrese su correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha del turno:</label>
+                    <input type="text" id="fecha" name="fecha" class="flatpickr-input" placeholder="Pulsa para seleccionar una fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora del turno:</label>
+                    <input type="time" id="hora" name="hora" min="09:00" max="20:00" step="1800" required>
+                </div>
+                <div class="form-group">
+                    <label for="profesional">Profesional:</label>
+                    <select id="profesional" name="profesional" required>
+                        <option value="" disabled selected>Selecciona un profesional</option>
+                        <option value="profesional1">Primer personal disponible</option>
+                        <option value="profesional2">Lara Balerdi</option>
+                        <option value="profesional3">Malena Gonzalez</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Servicio:</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="Esmaltado Semipermanente (Manos y Pies) - $23.000">Esmaltado Semipermanente (Manos y Pies) - $23.000</option>
+                        <option value="Kapping con Semipermanente (Manos + Pies) - $25.000">Kapping con Semipermanente (Manos + Pies) - $25.000</option>
+                        <option value="Lash Lifting (Lifting con tinte + Perfilado) - $16.000">Lash Lifting (Lifting con tinte + Perfilado) - $16.000</option>
+                        <option value="Uñas Esculpidas (Manos) - $24.000">Uñas Esculpidas (Manos) - $24.000</option>
+                        <option value="Kapping (Manos) - $14.000">Kapping (Manos) - $14.000</option>
+                        <option value="Retirado Soft Gel o Kapping - $4.000">Retirado Soft Gel o Kapping - $4.000</option>
+                        <option value="Semipermanente (Manos) - $12.000">Semipermanente (Manos) - $12.000</option>
+                        <option value="Semipermanente en Pies - $11.000">Semipermanente en Pies - $11.000</option>
+                        <option value="Soft Gel (Manos) - $16.000">Soft Gel (Manos) - $16.000</option>
+                        <option value="Maquillaje (Make up) - $60.000">Maquillaje (Make up) - $60.000</option>
+                        <option value="Makeup Carnaval - Desde $40.000 a $197.000">Makeup Carnaval - Desde $40.000 a $197.000</option>
+                        <option value="Rostro (Lifting, perfilado, tinte, laminado)">Rostro (Lifting, perfilado, tinte, laminado)</option>
+                        <option value="Soft Gel (Manos) + Semipermanente en Pies - $28.000">Soft Gel (Manos) + Semipermanente en Pies - $28.000</option>
+                        <option value="Uñas Esculpidas (Manos) + Semipermanente en Pies - $35.000">Uñas Esculpidas (Manos) + Semipermanente en Pies - $35.000</option>
+                    </select>
+                </div>
+                <button type="submit">Reservar</button>
+            </form>
+            <p id="mensajeConfirmacion">Si tu turno se agregó correctamente, recibirás confirmación por correo.</p>
+        </section>
+    </main>
+
+    <!-- Modal de confirmación -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2></h2> <!-- Título dinámico -->
+            <p></p>   <!-- Mensaje dinámico -->
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 MB Estudio de Belleza. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from "./firebase-config.js";
+
+        // Inicializa EmailJS
+        emailjs.init("DkiWl61H2S7_utMee");
+
+        // Configura Flatpickr
+        flatpickr("#fecha", {
+            dateFormat: "d/m/Y",
+            minDate: "today",
+            locale: "es",
+            disableMobile: true,
+        });
+
+        // Captura el formulario y el mensaje de confirmación
+        const turnoForm = document.getElementById("turnoForm");
+        const mensajeConfirmacion = document.getElementById("mensajeConfirmacion");
+        const modal = document.getElementById("modalConfirmacion");
+        const cerrarModal = document.querySelector(".cerrar-modal");
+        const modalTitulo = document.querySelector(".modal-contenido h2");
+        const modalMensaje = document.querySelector(".modal-contenido p");
+
+        turnoForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Captura los datos del formulario
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+            const telefono = document.getElementById("telefono").value;
+            const fecha = document.getElementById("fecha").value;
+            const hora = document.getElementById("hora").value;
+            const servicio = document.getElementById("servicio").value;
+
+            try {
+                // Guardar en Firebase
+                await addDoc(collection(db, "turnos"), {
+                    nombre,
+                    email,
+                    telefono,
+                    fecha,
+                    hora,
+                    servicio,
+                    timestamp: serverTimestamp(), // Fecha y hora del servidor
+                });
+
+                // Enviar correo de confirmación al cliente
+                const templateParams = { nombre, email, telefono, fecha, hora, servicio };
+                await emailjs.send("service_bg7iptu", "template_4tl5ctl", templateParams);
+
+                // Enviar correo al administrador
+                const adminParams = { ...templateParams, admin_email: "kentuckyr2@gmail.com" };
+                await emailjs.send("service_bg7iptu", "template_gr9f36s", adminParams);
+
+                // Mostrar mensaje de éxito
+                modalTitulo.textContent = "¡Turno agendado!";
+                modalMensaje.textContent = "Tu turno ha sido agendado correctamente. Revisa tu correo electrónico para más detalles.";
+                modal.style.display = "flex";
+
+                // Limpiar el formulario
+                turnoForm.reset();
+            } catch (error) {
+                console.error("Error:", error);
+                modalTitulo.textContent = "¡Error!";
+                modalMensaje.textContent = "Hubo un error al agendar tu turno. Por favor, inténtalo de nuevo.";
+                modal.style.display = "flex";
+            }
+        });
+
+        // Cerrar el modal
+        cerrarModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

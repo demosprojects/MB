@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Debug</title>
+    <!-- Carga Firebase desde el CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <script>
+        // Configura Firebase con tus credenciales
+        const firebaseConfig = {
+            apiKey: "AIzaSyDppBzhbYEbvojVSlynVK4RgZgkmXRzyYY",
+  authDomain: "mb-estudio-de-belleza.firebaseapp.com",
+  projectId: "mb-estudio-de-belleza",
+  storageBucket: "mb-estudio-de-belleza.firebasestorage.app",
+  messagingSenderId: "918025008393",
+  appId: "1:918025008393:web:f2c3017629b7d2a4310fd8"
+        };
+
+        // Inicializa Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Habilita el modo de depuración
+        const { setLogLevel } = firebase.firestore;
+        setLogLevel('debug');
+
+        console.log("Modo de depuración habilitado");
+    </script>
+</body>
+</html>

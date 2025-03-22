@@ -1,0 +1,338 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+}
+
+/* Contenedor principal */
+main {
+    flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+}
+
+/* Header con degradado de rosa a violeta */
+header {
+    background: linear-gradient(90deg, #db2e99, #8a4fff); /* Degradado de rosa a violeta */
+    color: white;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+header .logo img {
+    height: 50px; /* Ajusta la altura de la imagen según necesites */
+    width: auto; /* Mantiene la proporción de la imagen */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd3d0; /* Rosa claro */
+}
+
+/* Estilos para la sección del formulario */
+.formulario-turno {
+    padding: 50px 10%;
+    background: white;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-turno:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formulario-turno h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+.formulario-turno h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6f61, #8a4fff); /* Línea decorativa con degradado */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e0e0e0; /* Borde más grueso */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: #f9f9f9; /* Fondo ligeramente gris */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #ff6f61; /* Borde rosa al enfocar */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.3); /* Sombra suave al enfocar */
+    outline: none;
+    background: white; /* Fondo blanco al enfocar */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px; /* Altura mínima */
+}
+
+button {
+    background: linear-gradient(90deg, #ff6f61, #8a4fff); /* Botón con degradado */
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3); /* Sombra al pasar el mouse */
+}
+
+/* Footer */
+footer {
+    background: #8a4fff; /* Violeta */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6f61; /* Rosa */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 5%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .formulario-turno {
+        padding: 30px 5%;
+        margin: 30px auto;
+    }
+
+    .formulario-turno h2 {
+        font-size: 28px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cerrar-modal:hover {
+    color: #ff6f61;
+}
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de scroll to top */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, #ff6f61, #8a4fff); /* Degradado de rosa a violeta */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Forma circular */
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: none; /* Oculto por defecto */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
+}
+
+/* Estilos para el botón de WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #25d366; /* Color verde de WhatsApp */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.whatsapp-button img {
+    width: 30px; /* Tamaño del ícono de WhatsApp */
+    height: 30px;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3); /* Sombra con color de WhatsApp */
+}
+
+/* Mostrar el botón de scroll to top cuando se desplaza la página */
+.scroll-top-btn.visible {
+    display: block;
+}
