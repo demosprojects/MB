@@ -27,16 +27,6 @@ header {
     animation-range: 0 100px;
 }
 
-@keyframes adjust-header {
-    to {
-        background: linear-gradient(90deg, rgba(219, 46, 153, 0.8), rgba(138, 79, 255, 0.8)); /* Mantiene el degradado pero con transparencia */
-        
-        height: 32px;
-        border-radius: 0;
-    }
-}
-
-
 
 header .logo img {
     height: 50px; /* Ajusta la altura de la imagen según necesites */
