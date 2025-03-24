@@ -336,3 +336,37 @@ footer {
 .scroll-top-btn.visible {
     display: block;
 }
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Cambia a columna para móviles */
+        text-align: center;
+        padding: 15px 5%;
+    }
+
+    header .logo {
+        margin-bottom: 10px; /* Espacio entre el logo y los enlaces */
+    }
+
+    nav ul {
+        flex-direction: row; /* Mantén los enlaces en línea */
+        justify-content: space-between; /* Separa los enlaces */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    nav ul li {
+        margin: 0 10px; /* Elimina el margen izquierdo */
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
