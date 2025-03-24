@@ -12,24 +12,14 @@ body {
 }
 
 header {
-
-background: linear-gradient(90deg, #db2e99, #8a4fff); /* Degradado de rosa a violeta */
-
-color: white;
-
-padding: 20px 10%;
-
-display: flex;
-
-justify-content: space-between;
-
-align-items: center;
-
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    background: linear-gradient(90deg, #db2e99, #8a4fff); /* Degradado de rosa a violeta */
+    color: white;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
 
 header .logo img {
     height: 50px; /* Ajusta la altura de la imagen según necesites */
@@ -138,8 +128,6 @@ nav ul li a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
 .servicio img {
     width: 100%;
     border-radius: 10px;
@@ -195,18 +183,23 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
+        flex-direction: column; /* Cambia a columna para móviles */
         text-align: center;
         padding: 15px 5%;
     }
 
+    header .logo {
+        margin-bottom: 10px; /* Espacio entre el logo y los enlaces */
+    }
+
     nav ul {
-        flex-direction: column;
-        margin-top: 10px;
+        flex-direction: row; /* Mantén los enlaces en línea */
+        justify-content: space-between; /* Separa los enlaces */
+        width: 100%; /* Ocupa todo el ancho disponible */
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 0 10px; /* Elimina el margen izquierdo */
     }
 
     .hero-content h1 {
@@ -278,8 +271,8 @@ footer {
     display: block;
 }
 
- /* Estilos para la sección de ubicación */
- .ubicacion {
+/* Estilos para la sección de ubicación */
+.ubicacion {
     padding: 50px 10%;
     text-align: center;
 }
@@ -297,5 +290,3 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
